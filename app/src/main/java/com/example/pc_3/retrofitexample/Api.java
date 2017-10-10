@@ -1,7 +1,8 @@
 package com.example.pc_3.retrofitexample;
 
+import io.reactivex.Observable;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
+import retrofit2.Response;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
@@ -13,7 +14,7 @@ import retrofit2.http.POST;
 public interface Api {
     @FormUrlEncoded
     @POST("auth/sign_in")
-    Call<ResponseBody> login(@Field("user") String user, @Field("password") String password,
-                             @Field("device_token") String device, @Field("device_os") String android);
+    Observable<Response<ResponseBody>> login(@Field("user") String user, @Field("password") String password,
+                                             @Field("device_token") String device, @Field("device_os") String android);
 
 }

@@ -1,12 +1,15 @@
 package com.example.pc_3.retrofitexample.Login;
 
-import android.util.Log;
 
 import com.example.pc_3.retrofitexample.BaseClient;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import okhttp3.ResponseBody;
-import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.Response;
 
 /**
@@ -23,18 +26,30 @@ class LoginModel implements LoginContract.Model {
 
     @Override
     public void requestLogin(String user, String password) {
-        Call<ResponseBody> call = BaseClient.provideApiService().login(user, password, "", "android");
-        call.enqueue(new Callback<ResponseBody>() {
-            @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.isSuccessful()) presenter.userLogged();
-                else presenter.showMessage("error: " + response.code());
-            }
+        Observable<Response<ResponseBody>> observable = BaseClient.provideApiService().login(user, password, "", "android");
+        observable.subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Response<ResponseBody>>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
 
-            @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                presenter.showMessage("error: " + t.toString());
-            }
-        });
+                    }
+
+                    @Override
+                    public void onNext(@NonNull Response<ResponseBody> responseBodyResponse) {
+                        if (responseBodyResponse.isSuccessful()) presenter.userLogged();
+                        else presenter.showMessage("error: " + responseBodyResponse.code());
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        presenter.showMessage("error: " + e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
     }
 }
