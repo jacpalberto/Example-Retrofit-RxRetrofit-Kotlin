@@ -8,7 +8,7 @@ class LoginPresenter implements LoginContract.Presenter {
     private LoginContract.View view;
     private LoginContract.Model model;
 
-    public LoginPresenter(LoginContract.View view, LoginContract.Model model) {
+    LoginPresenter(LoginContract.View view, LoginContract.Model model) {
         this.view = view;
         this.model = model;
         this.model.setPresenter(this);
@@ -16,6 +16,10 @@ class LoginPresenter implements LoginContract.Presenter {
 
     @Override
     public void requestLogin(String user, String password) {
+        if (user.isEmpty() && password.isEmpty()) {
+            view.showMessage("user & password invalid");
+            return;
+        }
         view.showProgress();
         model.requestLogin(user, password);
     }
