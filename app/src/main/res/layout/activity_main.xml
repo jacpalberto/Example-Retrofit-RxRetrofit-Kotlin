@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient"
@@ -8,56 +9,91 @@
     android:orientation="vertical">
 
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_email"
+        android:id="@+id/til_username"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="20dp"
         android:background="@android:color/white">
 
         <EditText
-            android:id="@+id/tvEmail"
+            android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white"
-            android:hint="E-mail"
+            android:hint="@string/github_username"
+            android:imeOptions="actionSearch"
             android:inputType="textEmailAddress"
             android:paddingStart="10dp" />
     </android.support.design.widget.TextInputLayout>
 
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/til_password"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@id/til_email"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="2dp"
-        android:background="@android:color/white">
-
-        <EditText
-            android:id="@+id/tvPassword"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:hint="Password"
-            android:inputType="textVisiblePassword"
-            android:paddingStart="10dp" />
-    </android.support.design.widget.TextInputLayout>
-
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSearch"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_below="@id/til_password"
+        android:layout_below="@id/til_username"
         android:layout_marginEnd="30dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:text="Log in"
+        android:layout_marginTop="15dp"
+        android:text="@string/search"
         android:textAllCaps="false"
         android:textColor="@android:color/black"
         android:textSize="17sp" />
+
+    <ImageView
+        android:layout_marginTop="15dp"
+        android:id="@+id/ivProfile"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@id/btnSearch"
+        android:layout_centerHorizontal="true"
+        android:scaleType="centerCrop"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/ivProfile"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        tools:text="GDG GDL" />
+
+    <TextView
+        android:id="@+id/tvUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvName"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        tools:text="www.okjoo.kokm" />
+
+    <TextView
+        android:id="@+id/tvRepositories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvUrl"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        tools:text="repositories: 3" />
+
+    <TextView
+        android:id="@+id/tvFollowers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvRepositories"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp"
+        android:textColor="@android:color/black"
+        android:textSize="17sp"
+        tools:text="followers: 5" />
 
     <android.support.v4.widget.ContentLoadingProgressBar
         android:id="@+id/progressBar"
