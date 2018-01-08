@@ -1,6 +1,7 @@
-package com.example.pc_3.retrofitexample.Login
+package com.example.pc_3.retrofitexample.Github
 
 import com.example.pc_3.retrofitexample.BaseClient
+import com.example.pc_3.retrofitexample.User
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

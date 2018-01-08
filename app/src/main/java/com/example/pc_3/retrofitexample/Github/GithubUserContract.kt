@@ -1,4 +1,6 @@
-package com.example.pc_3.retrofitexample.Login
+package com.example.pc_3.retrofitexample.Github
+
+import com.example.pc_3.retrofitexample.User
 
 /**
  * Created by PC-3 on 09/10/2017.

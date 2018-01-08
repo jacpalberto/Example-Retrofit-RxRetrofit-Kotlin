@@ -1,4 +1,4 @@
-package com.example.pc_3.retrofitexample.Login
+package com.example.pc_3.retrofitexample.Github
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import com.example.pc_3.retrofitexample.R
+import com.example.pc_3.retrofitexample.User
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
