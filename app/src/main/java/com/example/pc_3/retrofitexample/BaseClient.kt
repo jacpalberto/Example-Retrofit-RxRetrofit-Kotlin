@@ -18,7 +18,7 @@ object BaseClient {
         return OkHttpClient.Builder().addInterceptor(interceptor).build()
     }
 
-    fun retrofit(): Retrofit {
+    private fun retrofit(): Retrofit {
         return Retrofit.Builder()
                 .baseUrl(BuildConfig.API_URL)
                 .client(provideClient())
