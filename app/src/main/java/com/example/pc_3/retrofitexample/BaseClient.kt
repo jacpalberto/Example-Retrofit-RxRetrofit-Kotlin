@@ -1,5 +1,6 @@
 package com.example.pc_3.retrofitexample
 
+import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -23,6 +24,7 @@ object BaseClient {
                 .baseUrl(BuildConfig.API_URL)
                 .client(provideClient())
                 .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()
     }
 

@@ -1,4 +1,4 @@
-package com.example.pc_3.retrofitexample.Login
+package com.example.pc_3.retrofitexample
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,7 +1,7 @@
 package com.example.pc_3.retrofitexample
 
-import com.example.pc_3.retrofitexample.Login.User
-import retrofit2.Call
+import io.reactivex.Observable
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 
@@ -11,6 +11,5 @@ import retrofit2.http.Path
 
 interface Api {
     @GET("users/{name}")
-    fun getUser(@Path("name") name: String): Call<User>
-
+    fun getUser(@Path("name") name: String): Observable<Response<User>>
 }
